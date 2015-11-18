@@ -1,0 +1,16 @@
+{
+  "name": "hotelChecker",
+  "version": "0.0.0",
+  "description": "",
+  "homepage": "",
+  "main": "dist/index.js",
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {
+    "request": "latest",
+    "async": "latest",
+    "moment": "latest",
+    "node-uuid": "latest",
+    "lodash": "latest"  
+  }
+}

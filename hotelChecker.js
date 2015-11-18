@@ -49,12 +49,14 @@ var request = require("request"),
 //    consle.log("results")
 // });
 
-var loginUrl = "https://compass.onpeak.com/e/43EZP15";
+var code = "43EZP15";
+
+var loginUrl = "https://compass.onpeak.com/e/" + code;
 
 //just need to change artic_beaker_cookie;
 
 function lookForHotelFromApi(sessionId, headers, time) {
-	var checkUrl = "https://compass.onpeak.com/e/43EZP15/" + sessionId + "/roomsPopup?hotel_id=16121&arrive=2015-03-06&depart=2015-03-07&_=" + time;
+	var checkUrl = "https://compass.onpeak.com/e/" + code + "/" + sessionId + "/roomsPopup?hotel_id=16121&arrive=2016-04-21&depart=2016-04-24&_=" + time;
 
 	console.log("checkUrl = %j", checkUrl);
 
@@ -94,10 +96,10 @@ function lookForHotelFromApi(sessionId, headers, time) {
 				return day.availInfo === "AVAIL";
 			}
 
-			var thursdayAvailable = _.find(hotelMap["2015-03-05"], availableFunction) || false;
-			var fridayAvailable = _.find(hotelMap["2015-03-06"], availableFunction) || false;
-			var saturdayAvailable = _.find(hotelMap["2015-03-07"], availableFunction) || false;
-			var sundayAvailable = _.find(hotelMap["2015-03-08"], availableFunction) || false;
+			var thursdayAvailable = _.find(hotelMap["2016-04-21"], availableFunction) || false;
+			var fridayAvailable = _.find(hotelMap["2016-04-22"], availableFunction) || false;
+			var saturdayAvailable = _.find(hotelMap["2016-04-23"], availableFunction) || false;
+			var sundayAvailable = _.find(hotelMap["2016-04-24"], availableFunction) || false;
 
 			console.log("Thursday = %j", thursdayAvailable || "NOPE");
 			console.log("Friday = %j", fridayAvailable || "NOPE");
@@ -139,7 +141,7 @@ function signIntoWebsite () {
 
 			request.post(
 				{
-					url: "https://compass.onpeak.com/e/43EZP15/" + sessionId + "/categoryPassword",
+					url: "https://compass.onpeak.com/e/" + code + "/" + sessionId + "/categoryPassword",
 					form : {
 						categoryId: 15587,
 						name: "PAX"
